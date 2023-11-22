@@ -1,4 +1,4 @@
-
+// This styleAttribute is used as key value for status parameter in fire function below, based upon key the color and icon of toast changes.
 const styleAttribute={
 		"success":{
 			borderColor:"#16db65",
@@ -21,17 +21,17 @@ const styleAttribute={
 			background:"#fcf5c7"
 		}
 }
-
+//use Toast.fire("success","your custom message",2000(optional));
 const Toast = {
 	fire:function(status,message,duration=3000){
 		const toast = document.createElement("div");
 		toast.style.cssText = `
-			  z-index:100;
-			  height:20px;
-			  position: fixed;
+		      z-index:100;
+     	              height:20px;
+		      position: fixed;
 		      top: 20px;
-		    //   left: 50%;
-		    //   transform: translateX(250%);
+		      left: 50%;
+		      transform: translateX(250%);
 		      background-color: ${styleAttribute[status].background};
 		      color: #333;
 		      padding: 15px 25px;
@@ -42,8 +42,8 @@ const Toast = {
 		      align-items:center;
 		      font-size:20px;
 		      font-weight:600;
-			//   animation: fadeIn 1s ease-in-out;
-			  overflow:hidden;
+		      animation: fadeIn 1s ease-in-out;
+		      overflow:hidden;
 		`;
 		const icon = document.createElement("i");
 		icon.classList.add("fa",styleAttribute[status].icon);
@@ -73,7 +73,7 @@ const Toast = {
 		}, duration);
 	}	
 };
-
+// this style is used for animation.  The toast will move from x(300%) to x(250%).
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fadeIn {
